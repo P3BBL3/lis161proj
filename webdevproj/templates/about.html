@@ -1,0 +1,44 @@
+<!-- This is the about page -->
+{% extends 'base.html' %}
+
+{% block title %} About Page {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center pt-4" id="aboutcontent">
+	<div class="col-md-9">
+		<div class="aboutcontent" id="aboutcontent">
+			<div class="row justify-content-center ml-1 mr-1 ">
+				<h2>What is this site about and how did it came to be?</h2>
+			</div>
+			<div class="row text-justify ml-1 mr-1 ">
+				<p>&emsp;&emsp;I took an IT course in college and the final project for the course is to make a functional and usable website. Since I have been playing the game for a very long time already, I thought I'd make a website for this that is not like the wiki but something that might be useful nonetheless. If I am still actively playing the game, chances are, I will keep updating the Ship Tier List (Overall) as they update every month. I will also keep updating the others as long as the original source keeps updating or some kind soul will help me with some data. Even when I have been playing this game since the beginnning of EN, I cannot say that I am very good in the mechanics of the game. I am only here to collect cute ship girls. <br><br> &emsp;&emsp;With that, I thank you for taking the time to read this. If you want to help me further improve this, please see the details below. </p>
+			</div>
+			<div class="row justify-content-center ml-1 mr-1 ">
+				<h2>Where did I get my data?</h2>
+			</div>
+			<div class="row justify-content-center ml-1 mr-1 ">
+				<div class="row text-justify ml-1 mr-1 ">
+					<p>&emsp;&emsp;The Ship Tier List (Overall) is taking from Usagi-sensei. Tier List No.39 is the source of Ship Tier List (Overall). Credit to u/sapo84 for posting the raw images to the subreddit, u/ragerav and u/chouringjie for translating the tier list.</p>
+				</div>
+				<div class="row justify-content-center mb-4 ml-1 mr-1 aboutpic">
+					<div class="col-md-6"><img src="{{ url_for('static', filename='images/others/tierlistpg1.jpg') }}" width=100%></div>
+					<div class="col-md-6"><img src="{{ url_for('static', filename='images/others/tierlistpg2.jpg') }}" width=100%></div>
+				</div>
+				<div class="row text-justify ml-1 mr-1 ">
+					<p>&emsp;&emsp;The Ship Tier List (Mobs), Ship Tier List (Boss), Recommended PvP Compositions and Recommended General Equipment Loadouts are all from <a href="https://docs.google.com/spreadsheets/d/1B-kGGh6rHk7PlXQDkAl8bOGPUMp0oncVFeJAzSjdEgg/edit#gid=594301529">AriPanda's Azure Lane Guide</a>. Their discord is <a href="https://discord.gg/4FxkEg5">Azur Lane Homeless Shelter</a>. Users are Aristya (Aristya#6666), Panda (DontStandOnTanks#7749) and Doublemint (Doublemint#8851).<br><br> Disclaimer: I have not yet asked permission from them to use their data in this website as it is never planned to actually release this to the public, and was only a project to be submitted to my professor. When I ask them permission, and they denied me, I will probably take down a huge portion of this website until another person or group would help me with the data.</p>
+				</div>
+
+			</div>
+			<div class="row justify-content-center ml-1 mr-1 ">
+				<h2>Type your comments below for violent reactions or to give genuine help in expanding and improving this.</h2>
+			</div>
+		</div>
+
+		<div>
+			{% include 'comment.html' %}
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

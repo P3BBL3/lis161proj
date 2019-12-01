@@ -1,0 +1,165 @@
+<!-- This is the Tier List in General.
+For now there is only up to Tier 0 (the highest tier).
+Looking at my source, there are four more tiers (up to tier 4)
+but that will take a lot of time, which I don't have at the moment
+so this will do for now.-->
+
+{% extends 'base.html' %}
+
+{% block title %} Azur Lane Tier List {% endblock %}
+
+{% block content %}
+
+<br>
+<div class="row justify-content-center">
+    <ul class="nav nav-tabs nav-fill col-md-10 ml-2 mr-2">
+        <!-- This is a fast navigation for the three tier list -->
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('tierlist') }}">Overall</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{{ url_for('tierlistboss') }}">For Boss</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"href="{{ url_for('tierlistmob') }}">For Mobs</a>
+        </li>
+    </ul>
+</div>
+<br>
+<div class="row justify-content-center">
+
+	<div class="content col-md-10 " id="contentstlo">
+
+		<h1 class="showtier">Tier 0 : Main Fleet</h1>
+		<br>
+		<div class="tierseparator justify-content-center">
+            {% for shipdetails in tier0Main %}
+
+            <div class="card bdrdtr20 bdrdtl20" style="width: 10rem;">
+                <img src="{{ url_for('static', filename='images/shipportrait/'+ shipdetails[1] +'.png') }}" class="card-img-top " alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ shipdetails[2] }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{ shipdetails[4] }} </h6>
+                    <p class="card-text">{{ shipdetails[6] }}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+		</div>
+
+		<h1>Tier 0 : Vanguard and Submarines</h1>
+		<br>
+		<div class="tierseparator justify-content-center">
+            {% for shipdetails in tier0Vanguard %}
+
+            <div class="card" style="width: 10rem;">
+                <img src="{{ url_for('static', filename='images/shipportrait/'+ shipdetails[1] +'.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ shipdetails[2] }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{ shipdetails[4] }} </h6>
+                    <p class="card-text">{{ shipdetails[6] }}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+		</div>
+	</div>
+
+
+</div>
+<!-- This is the comment section -->
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        {% include 'comment.html' %}
+    </div>
+</div>
+
+{% endblock %}
+<!-- This is the old design. Just a reminder for me on how large this could've been if I didn't do loops. -->
+<!--
+<div class="row justify-content-center">
+
+	<div class="content col-md-10 " id="contentstlo">
+		<h1 class="showtier">Tier 0 : Main Fleet</h1>
+		<br>
+		<div class="tierseparator">
+			<div class="portrait" id="id131">
+				<p class="description"><a target="_blank" href="#" class="shipname">HMS Warspite</a><br><span class="raritycolorur">BB Ultra Rare</span><br>Retrofit<br>+Barrage +Anti-Sub</p>
+			</div>
+			<div class="portrait" id="idplan002">
+				<p class="description"><a target="_blank" href="#" class="shipname">HMS Monarch</a><br><span class="raritycolorsr">BB Priority</span><br>+Barrage <br>+Heal<br> <br></p>
+			</div>
+			<div class="portrait" id="id064">
+				<p class="description"><a target="_blank" href="#" class="shipname"><span class="shipnamesmaller">USS Washington</span></a><br><span class="raritycolorsr">BB Super Rare</span><br>+Barrage +Anti-Air</p>
+			</div>
+			<div class="portrait" id="id136">
+				<p class="description"><a target="_blank" href="#" class="shipname"><span class="shipnamesmaller">HMS Duke of York</span></a><br><span class="raritycolorsr">BB Super Rare</span><br>+Barrage +Damage Buff</p>
+			</div>
+			<div class="portrait" id="id212">
+				<p class="description"><a target="_blank" href="details/nagato.html" class="shipname">IJN Nagato</a><br><span class="raritycolorsr">BB Super Rare</span><br>+Barrage <br> +FP Buff +Reload Buff +Cute AF</p>
+			</div>
+			<div class="portrait" id="id367">
+				<p class="description"><a target="_blank" href="#" class="shipname">IJN Amagi</a><br><span class="raritycolorsr">BC Super Rare</span><br>+Barrage +Defense Buff<br> <br></p>
+			</div>
+			<div class="portrait" id="id357">
+				<p class="description"><a target="_blank" href="#" class="shipname">USS Essex</a><br><span class="raritycolore">CV Elite</span><br>+Barrage +Defense Buff<br> <br></p>
+			</div>
+			<div class="portrait" id="id077">
+				<p class="description"><a target="_blank" href="#" class="shipname">USS Enterprise</a><br><span class="raritycolorsr">CV Super Rare</span><br>+Survival<br> <br> <br></p>
+			</div>
+			<div class="portrait" id="id145">
+				<p class="description"><a target="_blank" href="#" class="shipname">HMS Illustrious</a><br><span class="raritycolorsr">CV Super Rare</span><br>+Anti-Air +Defense Buff <br> <br></p>
+			</div>
+			<div class="portrait" id="id356">
+				<p class="description"><a target="_blank" href="#" class="shipname">HMS Centaur</a><br><span class="raritycolorsr">CV Super Rare</span><br>+Barrage +Anti-Sub +Aviation Buff +FP Buff</p>
+			</div>
+			<div class="portrait" id="id142">
+				<p class="description"><a target="_blank" href="#" class="shipname">HMS Unicorn</a><br><span class="raritycolore">CVL Elite</span><br>+Heal<br> +Anti-Sub +Low Oil Cost +Reload Buff</p>
+			</div>
+			<div class="portrait" id="id232">
+				<p class="description"><a target="_blank" href="#" class="shipname">IJN Akashi</a><br><span class="raritycolorsr">AR Super Rare</span><br>+Heal +Survival +Low Oil Cost +Reload Buff</p>
+			</div>
+
+		</div>
+		<h1>Tier 0 : Vanguard and Submarines</h1>
+		<br>
+		<div class="tierseparator">
+			<div class="portrait" id="idplan006">
+				<p class="description"><a target="_blank" href="#" class="shipname"><span class="shipnamesmaller">FFNF Saint Louis</span></a><br><span class="raritycolorsr">CA Priority</span><br>+Main Gun (+1) <br> <br></p>
+			</div>
+			<div class="portrait" id="idplan005">
+				<p class="description"><a target="_blank" href="#" class="shipname">KMS Roon</a><br><span class="raritycolorsr">CA Priority</span><br>+Main Gun (+1) +Survival</p>
+			</div>
+			<div class="portrait" id="id036">
+				<p class="description"><a target="_blank" href="#" class="shipname">USS San Diego</a><br><span class="raritycolorur">CL Ultra Rare</span><br>Retrofit<br>+Main Gun (+1) +Barrage +Anti-Air +Anti-Sub</p>
+			</div>
+			<div class="portrait" id="id257">
+				<p class="description"><a target="_blank" href="#" class="shipname">ROC Yat Sen</a><br><span class="raritycolore">CL Elite</span><br>+Survival<br>+Low Oil Cost <br><span class="addnote">Note: Must pair with Ping Hai AND Ning Hai to be Tier 0</span></p>
+			</div>
+			<div class="portrait" id="id258">
+				<p class="description"><a target="_blank" href="#" class="shipname">ROC Ning Hai</a><br><span class="raritycolorsr">CL Super Rare</span><br>Retrofit<br>+Survival<br>+Low Oil Cost <br><span class="addnote">Note: Must pair with Ping Hai AND Yat Sen to be Tier 0</span></p>
+			</div>
+			<div class="portrait" id="id259">
+				<p class="description"><a target="_blank" href="#" class="shipname">ROC Ping Hai</a><br><span class="raritycolorsr">CL Super Rare</span><br>Retrofit<br>+Survival<br>+Low Oil Cost <br><span class="addnote">Note: Must pair with Ning Hai AND Yat Sen to be Tier 0</span></p>
+			</div>
+			<div class="portrait" id="id033">
+				<p class="description"><a target="_blank" href="#" class="shipname">USS Helena</a><br><span class="raritycolore">CL Elite</span><br>+Main Gun (+1) +Damage Buff<br> <br></p>
+			</div>
+			<div class="portrait" id="id155">
+				<p class="description"><a target="_blank" href="#" class="shipname">IJN Ayanami</a><br><span class="raritycolorsr">DD Super Rare</span><br> Retrofit<br>+Tordepdo +Barrage +Anti-Sub</p>
+			</div>
+			<div class="portrait" id="id166">
+				<p class="description"><a target="_blank" href="#" class="shipname">IJN Yukikaze</a><br><span class="raritycolorsr">DD Super Rare</span><br>+Torpedo +Heal +Anti-Sub +Defense Buff</p>
+			</div>
+			<div class="portrait" id="id343">
+				<p class="description"><a target="_blank" href="#" class="shipname">KMS U-47</a><br><span class="raritycolorsr">SS Super Rare</span><br>  <br> <br> <br></p>
+			</div>
+			<div class="portrait" id="id381">
+				<p class="description"><a target="_blank" href="#" class="shipname">IJN I-13</a><br><span class="raritycolorsr">SSV Super Rare</span><br>+Damage Buff <br> <br> <br></p>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+-->

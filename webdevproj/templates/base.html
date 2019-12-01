@@ -1,0 +1,25 @@
+<!-- This is the base html for all the pages. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}<!-- Title is placed here -->{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/design.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+<body>
+{% include 'navbar.html' %} <!-- This is the navigation bar -->
+
+{% block content %}
+
+<!-- Content is placed here. -->
+
+{% endblock %}
+
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.slim.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+{% include 'footer.html' %} <!-- This is the footer -->
+
+</body>
+</html>

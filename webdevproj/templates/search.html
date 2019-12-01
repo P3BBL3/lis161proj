@@ -1,0 +1,37 @@
+<!-- This is the search page -->
+
+{% extends 'base.html' %}
+
+{% block title %} Searching for {{ search }} {% endblock %}
+
+
+{% block content %}
+
+<div class="row justify-content-center page">
+
+    <div class="col-md-10">
+        <h2>Search Results for "{{ search }}" found({{ count }}):</h2><br>
+            <ol class="bg-light commentsection mb-5">
+                {% for datum in data %}
+                <li class="ml-4">
+                    <!-- These if statement checks if the data came from comments or content as they have different
+                     ways of showing the details of these search results-->
+                    {% if datum[3]=="comment" %}
+                    <p class="user">Main Entry: <a href="{{ url_for(datum[0]) }}">User {{ datum[1] }}</a></p>
+                    <p class="comment">&emsp;&emsp;User {{ datum[1] }} commented "{{ datum[2] }}"</p>
+                    {% else %}
+                    <p class="user">Main Entry: <a href="{{ url_for(datum[0]) }}">{{ datum[1] }}</a></p>
+                    <p class="comment">&emsp;&emsp;{{ datum[1] }} with a ship id of "{{ datum[2] }}" is of {{ datum[4] }} rarity with the following specialties: {{ datum[5] }}.</p>
+                    {% endif %}
+                </li>
+                <!-- This is just a divider. An empty div with borders. -->
+                <div class="verdiv"></div>
+                {% endfor %}
+
+            </ol>
+    </div>
+</div>
+
+{% endblock %}
+
+{% include "footer.html" %}

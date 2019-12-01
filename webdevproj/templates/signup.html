@@ -1,0 +1,51 @@
+<!-- This is the sign-up page -->
+
+{% extends 'base.html' %}
+
+{% block title %} Sign-up Page {% endblock %}
+
+{% block content %}
+
+<br>
+<div class="row justify-content-center ">
+
+    <div class="col-md-6 formdesign ">
+        <h4>Sign-up</h4>
+        <!-- This is the sign-up form. -->
+        <form action="/signup" method="POST" >
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+            </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- There are the error checks. If there are invalid inputs, it will be redirected again in the route that
+         renders this and show the proper error message to guide the user.-->
+        {% if check==1 %}
+            <br>
+            <div class="alert alert-warning" role="alert">
+                Please input your desired username and password.
+            </div>
+        {% elif check==2 %}
+             <br>
+            <div class="alert alert-warning" role="alert">
+                Username already exist. Please Try Again.
+            </div>
+        {% elif check==3 %}
+             <br>
+            <div class="alert alert-warning" role="alert">
+                Username and Password cannot be less than five or greater than twenty.
+            </div>
+
+        {% endif %}
+        <p>Already have an account?</p>
+        <a href="/signin">Click here to sign-in.</a>
+    </div>
+
+</div>
+
+{% endblock %}

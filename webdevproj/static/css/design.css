@@ -1,0 +1,403 @@
+/* Navigation */
+.zoom a{
+	transition-duration: 500ms;
+	font-size: 18px;
+}
+
+.navidesign{
+    opacity: 0.9;
+}
+
+.bdrdtl20{
+    border-top-left-radius: 20px;
+}
+
+.bdrdtl20{
+    border-top-left-radius: 20px;
+}
+.bottompage{
+    margin-bottom: 50px;
+}
+.toppage{
+    margin-top: 50px;
+}
+.warning{
+    color: red;
+}
+.notify{
+    color: blue;
+}
+.posabs{
+    position: absolute;
+}
+.posrel{
+    position: relative;
+}
+
+linostyle{
+    list-style: none;
+}
+
+/* Generic Design */
+
+.page{
+    background: #eeeeee !important;
+}
+.contentholder{
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 40px;
+}
+.user{
+    word-wrap: break-word;
+}
+.comment{
+    word-wrap: break-word;
+}
+.table th, .table td{
+    text-align: center !important;
+}
+.tempcontentdesign{
+    background: white;
+    padding: 20px;
+    border-radius: 40px;
+}
+/* homepage */
+.carodesign{
+    border-radius: 50px;
+}
+
+.homeoption{
+    border-radius: 20px;
+}
+
+.row .card{
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.formdesign{
+    background: #eeeeee;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  opacity: 0.85;
+}
+.bg-gray{
+    background-color: #eeeeee;
+}
+.autohw{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Tier List */
+/*-----------*/
+
+.tierseparator{
+	background-color: white;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+#contentstlo{
+  background-color: white;
+
+}
+.portrait{
+  margin-top: 25px;
+  margin-left: 25px;
+  background-size: 116px 116px;
+  height: 116px;
+  width: 116px;
+  border-radius: 20px;
+  transition: 500ms;
+  padding: 0;
+}
+.portrait:last-child{
+  margin-bottom: 30px;
+}
+
+.portrait p{
+    position:static;
+    text-decoration: none;
+    text-align: center;
+    vertical-align:text-top;
+    word-wrap: normal;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 0;
+    transition: 500ms;
+    color: white;
+}
+.raritycolorur{
+  background-image: linear-gradient(to right, #69FFAD, #7899F4 40%, #CC6D9D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.raritycolorsr{
+  color:palegoldenrod;
+}
+.raritycolore{
+  color:plum;
+}
+.raritycolorr{
+  color:powderblue;
+}
+.raritycolorn{
+  color:gainsboro;
+}
+
+.shipname{
+  text-decoration: none;
+  color: white;
+}
+.shipnamesmaller{
+  font-size:12px;
+}
+
+.addnote{
+  font-size: 8px;
+  color: orange;
+}
+
+.portrait:hover{
+  transform: scale(1.4);
+}
+.portrait p:hover{
+  vertical-align:top;
+  opacity: 0.8;
+  background-color:black;
+}
+
+
+.content h1{
+	background-color: #efefef;
+	border-top: 3px dotted #000;
+	border-bottom: 3px dotted #000;
+	box-shadow: inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000;
+	margin-bottom: 1px;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+}
+
+/* PVP Composition */
+
+#tierseparatorpvp{
+  background-color: #eeeeee;
+  border-radius: 20px;
+}
+.shippos{
+  color: yellowgreen;
+}
+.alert{
+  color: red;
+}
+.moredetails{
+  color: lightblue;
+}
+.mainfleet{
+  display: flex;
+  flex-basis: 100%;
+  height: 300px;
+  justify-content:center;
+  transition: 500ms;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#id224f{
+  background: url(../images/shipfullbody/id224Akagi.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: top;
+}
+#id212f{
+  background: url(../images/shipfullbody/id212Nagato.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: center;
+}
+#id225f{
+  background: url(../images/shipfullbody/id225Kaga.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: top;
+}
+.mainfleet1{
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: 1s;
+}
+.content .shipdesc{
+  position: relative;
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  opacity: 0;
+  transition: 500ms;
+}
+.mainfleet1:hover{
+  flex-grow: 10;
+}
+#id212f:hover .shipdesc, #id224f:hover .shipdesc, #id225f:hover .shipdesc{
+  opacity: 1;
+  flex-basis: 99%;
+  height: auto;
+}
+.shipdesc h2{
+  padding: 0;
+  margin: 0;
+}
+.shipdesc p{
+  font-size: 16px;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: justify;
+
+}
+.vanguard{
+  display: flex;
+  flex-basis: 100%;
+  height: 300px;
+  justify-content:center;
+  transition: 500ms;
+  margin-bottom: 10px;
+}
+#id308f{
+  background: url(../images/shipfullbody/id308Sendai.png) no-repeat;
+  background-color: plum;
+  background-position: top;
+}
+#id309f{
+  background: url(../images/shipfullbody/id309Jintsuu.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: top;
+}
+#id118f{
+  background: url(../images/shipfullbody/id118Aurora.png) no-repeat;
+  background-color: plum;
+  background-position: top;
+}
+#id166f{
+  background: url(../images/shipfullbody/id166Yukikaze.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: top;
+}
+#id371f{
+  background: url(../images/shipfullbody/id371Sirius.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: top;
+}
+#idplan003f{
+  background: url(../images/shipfullbody/idplan003Ibuki.png) no-repeat;
+  background-color: palegoldenrod;
+  background-position: top;
+}
+.vanguard1{
+  position: relative;
+  flex-grow: 3;
+  display: flex;
+  overflow: hidden;
+  transition: 1s;
+}
+.vanguard .solo{
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.vanguard2{
+  position: relative;
+  flex-grow: 3;
+  display: flex;
+  overflow: hidden;
+  transition: 1s;
+}
+.vanguard3{
+  position: relative;
+  flex-grow: 3;
+  display: flex;
+  overflow: hidden;
+  transition: 1s;
+}
+.vanguard1:hover{
+  flex-grow: 20;
+}
+.vanguard2:hover{
+  flex-grow: 20;
+}
+.vanguard3:hover{
+  flex-grow: 20;
+}
+#id308f:hover .shipdesc, #id309f:hover .shipdesc, #id118f:hover .shipdesc, #id166f:hover .shipdesc, #id371f:hover .shipdesc, #idplan003f:hover .shipdesc{
+  opacity: 1;
+  flex-basis: 99%;
+  height: auto;
+}
+.pvpcompshipnamesr{
+  font-size: 30px;
+  font-weight: bolder;
+  color: palegoldenrod;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-decoration: none;
+}
+.pvpcompshipnamee{
+  font-size: 30px;
+  font-weight: bolder;
+  color: plum;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-decoration: none;
+}
+/* ABOUT */
+
+#aboutcontent{
+  background-color: #eeeeee;
+}
+.aboutcontent h2{
+    background-color: white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 30px;
+}
+
+.aboutcontent p{
+    background-color: white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 30px;
+}
+
+.aboutpic{
+    background-color: white;
+    padding: 20px 5px 20px 5px;
+    border-radius: 30px;
+}
+.commentsection{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+.commentsection .user{
+    font-size: 20px;
+    font-weight: bold;
+}
+.commentsection .comment{
+    font-size: 15px;
+}
+
+.verdiv{
+    border: 1px solid black;
+    margin-top: 10px;
+}
+

@@ -1,0 +1,130 @@
+<!-- This is the navigation bar -->
+
+<div class="row sticky-top bg-light navidesign">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <span class="navbar-text">
+                    <!-- This checks who to welcome, User is the default which means they are Guests, "" is just a catch
+                     in-case such event happens, nav is for the sign-in/up/off page-->
+                    {% if username=="User" or username=="" or nav=="OFF" %}
+                        Welcome Guest!
+                    {% else %}
+                        Welcome {{ username }}!
+                    {% endif %}
+                </span>
+                <ul class="navbar-nav mr-auto zoom">
+                    <li class="nav-item posrel">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Links
+                        </a>
+                        <div class="dropdown-menu posabs" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://azurlane.koumakan.jp/Azur_Lane_Wiki">AL Wiki</a>
+                            <a class="dropdown-item" href="https://twitter.com/AzurLane_EN">AL EN Twitter</a>
+                            <a class="dropdown-item" href="https://www.reddit.com/r/AzureLane">AL Subreddit</a>
+                            <a class="dropdown-item" href="{{ url_for('about') }}">About</a>
+                        </div>
+                    </li>
+                    <li class="nav-item posrel">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Actions
+                        </a>
+                        <div class="dropdown-menu posabs" aria-labelledby="navbarDropdownMenuLink">
+                            <!-- This blocks access to things that are not supposed to be used. Users who are not signed
+                             in cannot sign-out, people who are signed in cannot sign in, user must have admin status to
+                             access the user page.-->
+                            {% if username=="User" %}
+                                <a class="dropdown-item" href="{{ url_for('signin') }}">Sign-in</a>
+                            {% else %}
+                                <a class="dropdown-item disabled" href="#">Sign-in</a>
+                            {% endif %}
+
+                            {% if power=="0" %}
+                                <a class="dropdown-item" href="{{ url_for('users') }}">Users</a>
+                            {% else %}
+                                <a class="dropdown-item disabled" href="#">Users</a>
+                            {% endif %}
+
+                            {% if username=="User" or nav=="OFF" %}
+                                <a class="dropdown-item disabled" href="#">Sign-out</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Sign-out</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="mx-auto order-0">
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='images/others/ALLogo.png') }}" width="100" height="50" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto zoom">
+                    <li class="nav-item dropdown">
+                        <form class="form-inline" action="{{ url_for('search') }}" method="POST">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<!-- This is the old design. It is unnecessary, but I just want to have it here just in-case... -->
+  <!--  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <a class="navbar-brand" href="/">
+        <img src="{{ url_for('static', filename='images/others/ALLogo.png') }}" width="100" height="50" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto zoom">
+          <li class="nav-item active">
+            <a class="nav-link ml-1 mr-1" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ml-1 mr-1" href="https://azurlane.koumakan.jp/Azur_Lane_Wiki">Wiki Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ml-1 mr-1" href="https://twitter.com/AzurLane_EN">EN Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ml-1 mr-1" href="https://www.reddit.com/r/AzureLane">Subreddit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ml-1 mr-1" href="/about">About</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          {% if username=="User" %}
+            <p>Hello, do you wish to <a href="/signin">Sign-in?</a></p>
+          {% elif username=="" or nav=="OFF" %}
+            <p>Hello!</p>
+          {% else %}
+            {% if power=="0" %}
+                <p>Hello {{ username }}! These are your options! </p>
+                <div class="dropdown-menu">
+                  <h6 class="dropdown-header">Actions</h6>
+                  <a class="dropdown-item" href="/userlist">Check Users</a>
+                  <a class="dropdown-item" href="/logout">Sign-Out</a>
+                </div>
+            {% else %}
+                <p>Hello {{ username }}, do you wish to <a href="/logout">Log-out?</a></p>
+            {% endif %}
+          {% endif %}
+        </span>
+      </div>
+    </nav>-->
+  </div>
+  <div class="col-1"></div>
+</div>

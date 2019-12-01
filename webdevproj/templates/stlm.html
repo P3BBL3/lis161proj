@@ -1,0 +1,70 @@
+<!-- This is the Tier List for PvE Boss Page.
+ This is just the copy of the original but a big bigger.
+ It is not done yet as I need a lot of time to get all the
+ necessary data for the database and the images that
+ follows with them.-->
+{% extends 'base.html' %}
+
+{% block title %} Tier List for PvE Mobs {% endblock %}
+
+{% block content %}
+<br>
+    <div class="row justify-content-center">
+        <ul class="nav nav-tabs nav-fill col-md-10 ml-2 mr-2">
+            <li class="nav-item">
+                <a class="nav-link " href="{{ url_for('tierlist') }}">Overall</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ url_for('tierlistboss') }}">For Boss</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active"href="{{ url_for('tierlistmob') }}">For Mobs</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+
+        <div class="content col-md-10 " id="contentstlo">
+
+            <h1 class="showtier">Tier 0 : Main Fleet</h1>
+            <br>
+            <div class="tierseparator justify-content-center">
+                {% for shipdetails in tier0Main %}
+
+                <div class="card bdrdtr20 bdrdtl20" style="width: 12rem;">
+                    <img src="{{ url_for('static', filename='images/shipportrait/'+ shipdetails[1] +'.png') }}" class="card-img-top " alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ shipdetails[2] }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{ shipdetails[4] }} </h6>
+                        <p class="card-text">{{ shipdetails[6] }}</p>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+            <h1>Tier 0 : Vanguard and Submarines</h1>
+            <br>
+            <div class="tierseparator justify-content-center">
+                {% for shipdetails in tier0Vanguard %}
+
+                <div class="card bdrdtr20 bdrdtl20" style="width: 12rem;">
+                    <img src="{{ url_for('static', filename='images/shipportrait/'+ shipdetails[1] +'.png') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ shipdetails[2] }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> {{ shipdetails[4] }} </h6>
+                        <p class="card-text">{{ shipdetails[6] }}</p>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        {% include 'comment.html' %}
+    </div>
+</div>
+{% endblock %}

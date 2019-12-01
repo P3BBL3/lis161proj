@@ -1,0 +1,96 @@
+<!-- This is the comments template for all pages -->
+
+<div class="row justify-content-center answer  ml-1 mr-1 mb-2 commentsection">
+    <form action="{{ url_for(link) }}" method="POST" class="justify-content-center col-md-12">
+        <!-- Power 2 are for guests, Guests cannot comment, therefor this place is disabled -->
+        {% if power=="2" %}
+            Comment:<br>
+            <textarea disabled class="form-control" rows="3" name="comment">You need to sign-in before you can comment.</textarea>
+            <br>
+            <button disabled type="submit" class="btn btn-primary">Enter</button>
+        {% elif power=="1" or power=="0" %}
+            Comment:<br>
+            <textarea class="form-control" rows="3" name="comment" placeholder="Type your suggestions here."></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">Enter</button>
+
+        {% endif %}
+    </form>
+</div>
+
+<div class="row justify-content-center bottompage ml-1 mr-1 commentsection">
+    <div class="col-md-12">
+        <!-- These are the warning message depending on what action was done before opening this page -->
+        {% if check == 1 %}
+        <div class="alert alert-success" role="alert">
+            Comment posted successfully!
+        </div>
+        {% elif check == 2 %}
+        <div class="alert alert-success" role="alert">
+            Comment edited successfully!
+        </div>
+        {% elif check == 3 %}
+        <div class="alert alert-success" role="alert">
+            Comment deleted successfully!
+        </div>
+        {% elif check == 4 %}
+        <div class="alert alert-warning" role="alert">
+            Comment cannot be blank.
+        </div>
+        {% endif %}
+        <!-- This lists all the comments from the database that has a link equal to the name of the current page link-->
+        {% for datum in data %}
+            <p class="user">{{ datum[1] }}</p>
+            <p class="comment"> {{ datum[2] }}</p>
+            <!-- This checks if the comment is from the user in session or if the user is admin, if so,
+            edit and delete actions will be available-->
+            {% if username==datum[1] or power=="0" %}
+            <div class="row">
+                <div class="col-md-1">
+                    <!-- Button trigger modal data-target and id must be the same for this to work-->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id{{ datum[0] }}">
+                    Edit
+                    </button>
+                    <!-- Modal for the Edit function -->
+                    <div class="modal fade" id="id{{ datum[0] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Edit Comment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <form action="{{ url_for(link) }}" method="POST">
+                                    <div class="modal-body">
+                                        <!-- Input hidden to pass the value of the id and another input
+                                         to pass the value of the new comment-->
+                                        <input type="hidden" name="editid" value="{{ datum[0] }}">
+                                        Input New Comment: <br>
+                                        <textarea class="form-control" rows="3" name="edit" placeholder="{{ datum[2] }}"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- This is for the Delete Button -->
+                    <div class="col-md-1">
+                        <form action="{{ url_for('about') }}" method="POST">
+                            <!-- Input hidden so that it will give the value of the id -->
+                            <input type="hidden" name="delete" value="{{ datum[0] }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+            </div>
+            {% endif %}
+            <!-- This is just design. An empty div with borders to divide one comment from another -->
+            <div class="verdiv"></div>
+            <br>
+        {% endfor %}
+    </div>
+</div>

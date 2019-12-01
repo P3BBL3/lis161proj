@@ -1,0 +1,96 @@
+<!--
+This is the PVP Recommendation Page
+Codes here are pulled from my LIS160 Project
+As there is not enough time to implement this
+and the only reason it is here is to pad the
+amount of content I have in the website for now
+and show what this page could've been if I
+finished it
+-->
+
+{% extends 'base.html' %}
+
+{% block title %} PvP Recommendation {% endblock %}
+
+{% block content %}
+
+<br>
+
+<div class="page row justify-content-center">
+	<div class="content col-md-9" id="contentpvpcomp">
+		<h1 class="showtier mt-4">Nakaga Fleet</h1>
+		<br>
+		<div class="tierseparator" id="tierseparatorpvp">
+			<div class="mainfleet">
+				<div class="mainfleet1" id="id224f">
+					<div class="shipdesc">
+						<h2 class="pvpcompshipnamesr"> Akagi </h2>
+						<p>Details </p>
+					</div>
+				</div>
+				<div class="mainfleet1" id="id212f">
+					<div class="shipdesc">
+						<h2 class="pvpcompshipnamesr"> Nagato </h2>
+						<p>Details </p>
+					</div>
+				</div>
+				<div class="mainfleet1" id="id225f">
+					<div class="shipdesc">
+						<h2 class="pvpcompshipnamesr"> Kaga </h2>
+						<p>&emsp; Kaga by herself is not really top tier. If she is together with Akagi, she is great. If she is with Akagi and Nagato, then she is one of the Tier 0 ships especially in PVP.</p>
+					</div>
+				</div>
+			</div>
+			<div class="vanguard">
+				<div class="vanguard1">
+					<div class="vanguard2 solo" id="id308f">
+						<div class="shipdesc">
+							<h2 class="pvpcompshipnamesr"> Sendai </h2>
+							<p>&emsp; Sendai buffs the reload and torpedo <span class="moredetails">(by 3% to 15%)</span> of all allied CL and DD at the same time and <span class="alert">has a chance </span> <span class="moredetails">(of 20% to 40% every 20s with the first chance at 10s after the battle starts)</span> to decrease enemy evasion <span class="moredetails">(by 25%)</span> within the skill radius <span class="moredetails">(for 10s)</span>. <br><br> <span class="shippos">Position: Left when Jintsu is not in use or Right when Jintsu is in use.</span></p>
+						</div>
+					</div>
+					<div class="vanguard2 solo" id="id309f">
+						<div class="shipdesc">
+							<h2 class="pvpcompshipnamesr"> Jintsuu </h2>
+							<p>&emsp; Jintsu buffs the reload and torpedo of all allied CL and DD at the same time and increase critical hit chance and critical damage. She also has 20% damage reduction to herself. <br> <span class="shippos">Position: Left.</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="vanguard1 solo" id="id118f">
+					<div class="shipdesc">
+						<h2 class="pvpcompshipnamesr"> Akagi </h2>
+						<p>&emsp; Akagi by herself is not really top tier. If she is together with Kaga, she is great. If she is with Kaga and Nagato, then she is one of the Tier 0 ships especially in PVP. <br> <span class="shippos">Position: Left or Right.</span></p>
+					</div>
+				</div>
+				<div class="vanguard1">
+					<div class="vanguard2 solo" id="id166f">
+						<div class="shipdesc">
+							<h2 class="pvpcompshipnamesr"> Akagi </h2>
+							<p>&emsp; Akagi by herself is not really top tier. If she is together with Kaga, she is great. If she is with Kaga and Nagato, then she is one of the Tier 0 ships especially in PVP. <br> <span class="shippos">Position: Left or Right.</span></p>
+						</div>
+					</div>
+					<div class="vanguard2 solo" id="id371f">
+						<div class="shipdesc">
+							<h2 class="pvpcompshipnamesr"> Akagi </h2>
+							<p>&emsp; Akagi by herself is not really top tier. If she is together with Kaga, she is great. If she is with Kaga and Nagato, then she is one of the Tier 0 ships especially in PVP. <br> <span class="shippos">Position: Left or Right.</span></p>
+						</div>
+					</div>
+					<div class="vanguard2 solo" id="idplan003f">
+						<div class="shipdesc">
+							<h2 class="pvpcompshipnamesr"> Akagi </h2>
+							<p>&emsp; Akagi by herself is not really top tier. If she is together with Kaga, she is great. If she is with Kaga and Nagato, then she is one of the Tier 0 ships especially in PVP. <br> <span class="shippos">Position: Left or Right.</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-9">
+			{% include 'comment.html' %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,51 @@
+<!-- This is the page for sign-in page -->
+
+{% extends 'base.html' %}
+
+{% block title %} Sign-in Page {% endblock %}
+
+{% block content %}
+
+<br>
+<div class="row justify-content-center ">
+
+    <div class="col-md-6 formdesign ">
+        <!-- Form for signing up. -->
+        <h4>Sign-in</h4>
+        <form action="{{ url_for('signin') }}" method="POST" >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- These are possible error message. check == 0 is default -->
+
+        {% if check==1 %}
+            <br>
+            <div class="alert alert-warning" role="alert">
+                Wrong Password. Please Try Again.
+            </div>
+        {% elif check==2 %}
+            <br>
+            <div class="alert alert-warning" role="alert">
+                Username and Password are either both wrong or do not match. Please Try Again.
+            </div>
+        {% elif check==3 %}
+            <br>
+            <div class="alert alert-success" role="alert">
+                Sign-up successful! Please sign-in.
+            </div>
+        {% endif %}
+        <p>Don't have an account yet?</p>
+        <a href="{{ url_for('signup') }}">Click here to sign-up.</a>
+    </div>
+
+</div>
+
+{% endblock %}
