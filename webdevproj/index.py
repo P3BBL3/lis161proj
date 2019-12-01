@@ -459,8 +459,11 @@ def users():
     power = session["power"]
 
     if request.method == "GET":  # When user enters the users route through links.
-        data = getDBdata(openDB(1), 'SELECT * FROM user')  # lists all the users
-        return render_template("users.html", data=data, username=username, power=power, nav="ON", check=0)
+        if power == 0:
+            data = getDBdata(openDB(1), 'SELECT * FROM user')  # lists all the users
+            return render_template("users.html", data=data, username=username, power=power, nav="ON", check=0)
+        else:
+            return redirect(url_for('index'))
     else:
         # Deleting Users =============================================================================================
         try:  # We are trying to see if the POST request we got is from pressing the delete button
