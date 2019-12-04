@@ -407,7 +407,10 @@ def signin():
     passcheck = 0 # Checks if the password is valid, = 0 just for initialization
     power = session["power"]  # session
     if request.method == "GET":  # When users enter the signin route through links.
-        return render_template("form.html", check=0, nav="OFF")
+        if power == "0" or power == "1":  # This will prevent registered user and admin in accessing this page.
+            return redirect(url_for('index'))
+        else:
+            return render_template("form.html", check=0, nav="OFF")
     else:  # When users enter their username and password, the form redirects to this route and this else statement
         # catches it. This is so when there are errors in user input, user can easily try again.
         var_username = request.form["username"]
@@ -433,8 +436,12 @@ def signin():
 #Route for signup page
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
+    power = session["power"]
     if request.method == "GET":  # When user enters the signup route through links.
-        return render_template("signup.html", check=0, nav="OFF")
+        if power == "0" or power == "1":  # This will prevent registered user and admin in accessing this page.
+            return redirect(url_for('index'))
+        else:
+            return render_template("signup.html", check=0, nav="OFF")
     else:  # Upon entering value in the form, the form will send the data back to this route to be processed.
         var_username = request.form["username"]
         var_password = request.form["password"]
@@ -459,7 +466,7 @@ def users():
     power = session["power"]
 
     if request.method == "GET":  # When user enters the users route through links.
-        if power == 0:
+        if power == "0":  # Stops non-admins from getting in!!!
             data = getDBdata(openDB(1), 'SELECT * FROM user')  # lists all the users
             return render_template("users.html", data=data, username=username, power=power, nav="ON", check=0)
         else:
